@@ -46,7 +46,7 @@ const TodoList = () => {
         <>
             <div className="todo-app">
                 <h2>
-                    <img src="assets/todo.png" /> Todo List
+                    <img src="assets/todo.png" alt='todo'/> Todo List
                 </h2>
                 <Link to="/add">
                     <button id="btn ml-40">
@@ -93,24 +93,24 @@ const TodoList = () => {
                     <div className="dropdown">
                         <button className="dropbtn">Filter</button>
                         <div className="dropdown-content">
-                            <a href="#" id="all" onClick={() => handleFilterChange('all')}>
+                            <li id="all" onClick={() => handleFilterChange('all')}>
                                 All
-                            </a>
-                            <a href="#" id="rem" onClick={() => handleFilterChange('uncompleted')}>
+                            </li>
+                            <li id="rem" onClick={() => handleFilterChange('uncompleted')}>
                                 Active
-                            </a>
-                            <a href="#" id="com" onClick={() => handleFilterChange('completed')}>
+                            </li>
+                            <li id="com" onClick={() => handleFilterChange('completed')}>
                                 Completed
-                            </a>
-                            <a href="#" id="rem" onClick={() => handleFilterChange('low')}>
+                            </li>
+                            <li id="rem" onClick={() => handleFilterChange('low')}>
                             Low
-                            </a>
-                            <a href="#" id="rem" onClick={() => handleFilterChange('medium')}>
+                            </li>
+                            <li id="rem" onClick={() => handleFilterChange('medium')}>
                             Medium
-                            </a>
-                            <a href="#" id="rem" onClick={() => handleFilterChange('high')}>
+                            </li>
+                            <li id="rem" onClick={() => handleFilterChange('high')}>
                             High
-                            </a>
+                            </li>
                         </div>
                     </div>
 

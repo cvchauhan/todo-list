@@ -19,6 +19,7 @@ const TaskItem = ({ task, priority }) => {
                   to={`/edit/${task.id}`}                  
                 >
           <img
+            alt="edit"
             src="assets/edit.png"
             className="edit"
             data-id={task.id}
@@ -26,6 +27,7 @@ const TaskItem = ({ task, priority }) => {
           />
           </Link>
           <img
+            alt="delete"
             src="assets/delete.png"
             className="delete"
             data-id={task.id}
