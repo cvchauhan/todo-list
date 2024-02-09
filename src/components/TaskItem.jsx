@@ -13,7 +13,7 @@ const TaskItem = ({ task, priority }) => {
           checked={task.completed}
           onChange={() => completedSingletodo(task.id)}
         />
-        <label htmlFor={`task-${task.id}`}>{task.title} <small className={priority == 'high' ? "priority priority-high": 'priority priority-low'}>{task.priority}</small></label>
+        <label htmlFor={`task-${task.id}`}>{task.title} <small className="priority">{task.priority}</small></label>
         <div>
         <Link
                   to={`/edit/${task.id}`}                  

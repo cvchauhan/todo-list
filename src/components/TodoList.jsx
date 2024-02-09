@@ -33,7 +33,7 @@ const TodoList = () => {
             } else if (filterType === 'uncompleted') {
                 return !task.completed;
             } else if (filterType === 'low' || filterType === "medium" || filterType === "high") {
-                return task.priority == filterType;
+                return task.priority === filterType;
             }
             return true;
         });
