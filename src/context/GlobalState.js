@@ -1,9 +1,9 @@
-import React, { createContext, useReducer } from 'react';
-import { TASKS } from '../constant';
-import appReducer from './AppReducer';
+import React, { createContext, useReducer } from "react";
+import { TASKS } from "../constant";
+import appReducer from "./AppReducer";
 
 const initialState = {
-  todos: TASKS
+  todos: TASKS,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -14,7 +14,7 @@ export const GlobalProvider = ({ children }) => {
     dispatch({
       type: "ADD_TODO",
       payload: todo,
-      priority
+      priority,
     });
   }
 
@@ -22,32 +22,32 @@ export const GlobalProvider = ({ children }) => {
     dispatch({
       type: "EDIT_TODO",
       payload: todo,
-      priority: priority
+      priority: priority,
     });
   }
 
   function removeTodo(id) {
     dispatch({
       type: "REMOVE_TODO",
-      payload: id
+      payload: id,
     });
   }
   function completedAllTodo(todo) {
     dispatch({
       type: "COMPLETE_TODO_ALL",
-      payload: todo
+      payload: todo,
     });
   }
   function completedSingletodo(id) {
     dispatch({
       type: "COMPLETE_TODO",
-      payload: id
+      payload: id,
     });
   }
   function deleteCompletedTask(todo) {
     dispatch({
       type: "DELETE_COMPLETE_TODO",
-      payload: todo
+      payload: todo,
     });
   }
 
@@ -60,7 +60,7 @@ export const GlobalProvider = ({ children }) => {
         removeTodo,
         completedAllTodo,
         completedSingletodo,
-        deleteCompletedTask
+        deleteCompletedTask,
       }}
     >
       {children}

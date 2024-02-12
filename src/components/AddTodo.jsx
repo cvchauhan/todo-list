@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import { GlobalContext } from '../context/GlobalState';
+import { GlobalContext } from "../context/GlobalState";
 
 export const AddTodo = () => {
   let navigate = useNavigate();
@@ -17,7 +17,7 @@ export const AddTodo = () => {
       id: tasks.length + 1,
       title,
       description,
-      priority: "low"
+      priority: "low",
     };
     addTodo(newTodo);
     navigate("/");
@@ -25,47 +25,39 @@ export const AddTodo = () => {
 
   return (
     <>
-      <div className='container'>
-      <div className="todo-app">
-        <form onSubmit={onSubmit}>
-          <div>
-            <label
-              htmlFor="title"
-            >
-              Title
-            </label>
-            <input
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              type="text"
-              placeholder="Enter Title"
-            />
-          </div>
-          <div className="">
-            <label
-              className=""
-              htmlFor="description"
-            >
-              Description
-            </label>
-            <input
-              className=""
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              type="text"
-              placeholder="Enter description"
-            />
-          </div>
-          <div className="">
-            <button className="">
-              Add Todo
-            </button>
-            <Link to="/"> <button className="">
-              Cancel
-            </button></Link>
-          </div>          
-        </form>
-      </div>
+      <div className="container">
+        <div className="todo-app">
+          <form onSubmit={onSubmit}>
+            <div>
+              <label htmlFor="title">Title</label>
+              <input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+                placeholder="Enter Title"
+              />
+            </div>
+            <div className="">
+              <label className="" htmlFor="description">
+                Description
+              </label>
+              <input
+                className=""
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                type="text"
+                placeholder="Enter description"
+              />
+            </div>
+            <div className="">
+              <button className="">Add Todo</button>
+              <Link to="/">
+                {" "}
+                <button className="">Cancel</button>
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

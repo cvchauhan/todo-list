@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate, Link, useParams } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate, Link, useParams } from "react-router-dom";
 
-import { GlobalContext } from '../context/GlobalState';
+import { GlobalContext } from "../context/GlobalState";
 
 export const EditTodo = () => {
   let navigate = useNavigate();
@@ -12,13 +12,13 @@ export const EditTodo = () => {
     id: null,
     title: "",
     description: "",
-    priority: "low"
+    priority: "low",
   });
 
   const { id } = useParams();
 
   useEffect(() => {
-    const TodoId = id;    
+    const TodoId = id;
     const selectedTodo = tasks?.find(
       (currentTodoTraversal) => currentTodoTraversal.id === parseInt(TodoId)
     );
@@ -26,7 +26,7 @@ export const EditTodo = () => {
   }, [id, tasks]);
 
   const onSubmit = (e) => {
-    e.preventDefault();    
+    e.preventDefault();
     editTodo(selectedTodo, selectedTodo.priority);
     navigate("/");
   };
@@ -35,21 +35,23 @@ export const EditTodo = () => {
     setSelectedTodo({ ...selectedTodo, [userKey]: newValue });
 
   if (!selectedTodo || !selectedTodo.id) {
-    return <div>Invalid Todo ID.<Link to="/"> <button className="">
-    Go To Home page
-  </button></Link></div>;
+    return (
+      <div>
+        Invalid Todo ID.
+        <Link to="/">
+          {" "}
+          <button className="">Go To Home page</button>
+        </Link>
+      </div>
+    );
   }
 
   return (
-    <div className='container'>
+    <div className="container">
       <div className="todo-app">
-
         <form onSubmit={onSubmit}>
           <div className="">
-            <label
-              className=""
-              htmlFor="title"
-            >
+            <label className="" htmlFor="title">
               Title
             </label>
             <input
@@ -61,10 +63,7 @@ export const EditTodo = () => {
             />
           </div>
           <div className="w-full  mb-5">
-            <label
-              className=""
-              htmlFor="description"
-            >
+            <label className="" htmlFor="description">
               Description
             </label>
             <input
@@ -76,15 +75,13 @@ export const EditTodo = () => {
             />
           </div>
           <div className="">
-            <button className="">
-              Update Todo
-            </button>
-            <Link to="/"> <button className="">
-              Cancel
-            </button></Link>
+            <button className="">Update Todo</button>
+            <Link to="/">
+              {" "}
+              <button className="">Cancel</button>
+            </Link>
           </div>
         </form>
-
       </div>
     </div>
   );

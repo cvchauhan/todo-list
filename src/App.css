@@ -32,20 +32,24 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 .todo-item {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
- }
- .todo-item p {
+}
+
+.todo-item p {
   color: #888;
   text-decoration: line-through;
- }
- /* src/styles/TaskList.css */
+}
+
+/* src/styles/TaskList.css */
 .TaskListWrapper {
   display: flex;
   flex-direction: column;
@@ -77,4 +81,3 @@
   align-items: center;
   margin: 16px;
 }
-
