@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import { useContext } from "react";
 const TaskItem = ({ task, priority }) => {
+  console.log(task)
   const { completedSingletodo, editTodo, removeTodo } =
     useContext(GlobalContext);
   return (
@@ -15,7 +16,8 @@ const TaskItem = ({ task, priority }) => {
         onChange={() => completedSingletodo(task.id)}
       />
       <label htmlFor={`task-${task.id}`}>
-        {task.title} <small className="priority">{task.priority}</small>
+        {task.title} <small className={`priority ${task.priority}`}>{task.priority}</small>
+        <p className="description">{task.description}</p>
       </label>
       <div>
         <Link to={`/edit/${task.id}`}>

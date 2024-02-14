@@ -1,11 +1,10 @@
 import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
-export const AddTodo = () => {
+export const AddTodo = (props) => {
   let navigate = useNavigate();
-
+  const location = useLocation();  
   const { addTodo, tasks } = useContext(GlobalContext);
 
   const [title, setTitle] = useState("");
@@ -17,7 +16,7 @@ export const AddTodo = () => {
       id: tasks.length + 1,
       title,
       description,
-      priority: "low",
+      priority: location.state.priority ? location.state.priority :"low",
     };
     addTodo(newTodo);
     navigate("/");

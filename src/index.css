@@ -276,7 +276,7 @@ dropdown*/
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: gray;
 }
 
 .completed-task {
@@ -289,9 +289,21 @@ dropdown*/
   margin-left: 80px;
 }
 
-.priority {
-  background-color: green;
+.priority {  
   border-radius: 50%;
   padding: 10px;
   color: white;
+}
+.low {
+  background-color: green;
+}
+.high {
+  background-color: red;
+}
+.medium {
+  background-color: orange;
+}
+p.description {
+  margin-left: 21%;
+  margin-top: 5%;
 }

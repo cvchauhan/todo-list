@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TaskItem from "../components/TaskItem";
 import { GlobalContext } from "../context/GlobalState";
 
 const TodoList = () => {
   // State variables
+  let navigate = useNavigate();
   const { tasks, completedAllTodo, deleteCompletedTask } =
     useContext(GlobalContext);
   const [filteredTasks, setFilteredTasks] = useState([]);
@@ -43,24 +44,37 @@ const TodoList = () => {
     });
     setFilteredTasks(filteredTasksData);
   };
-  const priorityChange = (e) => {
-    setSelectedPriority(e.target.value);
+  const priorityChange = (value) => {
+    setSelectedPriority(value);
   };
+  const gotoAdd = () => {
+    navigate("/add", { state: { priority: selectedPriority } })
+  }
   return (
     <>
       <div className="todo-app">
         <h2>
           <img src="assets/todo.png" alt="todo" /> Todo List
         </h2>
-        <Link to="/add">
-          <button id="btn ml-40">Add</button>
-        </Link>
-        &nbsp;&nbsp;&nbsp;<label>Select Priority</label>
-        <select value={selectedPriority} onChange={priorityChange}>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
+        {/* <Link to="/add"> */}
+          <button id="btn ml-40" onClick={gotoAdd}>Add</button>
+        {/* </Link>         */}
+        <div className="filters">
+          <div className="dropdown">
+            <button className={`dropbtn ${selectedPriority}`}>{selectedPriority}</button>
+            <div className="dropdown-content">
+              <li id="rem" onClick={()=> priorityChange("low")}>
+                Low
+              </li>
+              <li id="rem" onClick={()=>priorityChange("medium")}>
+                Medium
+              </li>
+              <li id="rem" onClick={() => priorityChange("high")}>
+                High
+              </li>
+            </div>
+          </div>
+        </div>    
         <div className="row"></div>
         <div className="row">
           <input
